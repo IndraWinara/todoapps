@@ -22,6 +22,10 @@ const ModalCreate = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
+        if(!title && !description){
+            alert('Isi dahulu')
+            return
+        }
         await fetch('/api/topic', {
                 method: "POST", headers: { accept: 'application/json' }
                 , body: JSON.stringify({title,description})
